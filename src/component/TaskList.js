@@ -6,41 +6,40 @@ import './TaskList.css';
 
 function TaskList() {
   const dispatch = useDispatch();
-  const Todo = useSelector((state) => state.Todo);
-  const { todos } = Todo;
+  const todos = useSelector((state) => state.Todo.todos); // Get todos from Redux store
   const navigate = useNavigate();
 
   const removeHandler = (t) => {
-    dispatch(RemoveTodoAction(t));
+    dispatch(RemoveTodoAction(t));// Dispatch remove todo action
   };
 
   const editHandler = (id, newTodo) => {
-    dispatch(EditTodoAction(id, newTodo));
+    dispatch(EditTodoAction(id, newTodo));// Dispatch edit todo action
   };
 
   return (
     <div>
-      <h3>Task List</h3>
       <ul className="allTodo">
-        {todos &&
-          todos.map((t) => (
-            <li key={t.id} className="singleTodo">
-              <span className="todoText">{t.todo}</span>
-              <button onClick={() => removeHandler(t)}>Delete</button>
-              <button
-                onClick={() => {
-                  const newTodo = prompt('Edit todo:', t.todo);
-                  if (newTodo) {
-                    editHandler(t.id, newTodo);
-                  }
-                }}
-              >
-                Edit
-              </button>
-            </li>
-          ))}
+        {todos && todos.length > 0 ? todos.map((t) => (
+          <li key={t.id} className="singleTodo">
+            <span className="todoText">{t.todo}</span>
+            <button onClick={() => removeHandler(t)}>Delete</button>
+            <button
+              onClick={() => {
+                const newTodo = prompt('Edit todo:', t.todo);
+                if (newTodo) {
+                  editHandler(t.id, newTodo);
+                }
+              }}
+            >
+              Edit
+            </button>
+          </li>
+        )) : (
+          <li>No todos available</li>
+        )}
       </ul>
-      <button onClick={() => navigate('/')}>Back to Task Input</button> 
+      <button onClick={() => navigate('/')}>Back to Task Input</button> {/* Navigate to Taskinput */}
     </div>
   );
 }
