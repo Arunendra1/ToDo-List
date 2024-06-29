@@ -1,0 +1,63 @@
+form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 350px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    padding: 12px;
+    border-radius: 25px;
+    margin-left: 20px;
+    font-size: 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  .todoText {
+    flex-grow: 1;
+    font-size: 18px;
+    text-align: start;
+  }
+  
+  li button {
+    padding: 10px;
+    border-radius: 25px;
+    color: white;
+    border: 1px solid white;
+    background-color: orangered;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  li button:hover {
+    background-color: red;
+  }
+  .allTodo{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .singleTodo{
+    border-radius: 50px;
+    margin: 10px -10px;
+    background-color: #5dadf8;
+    padding: 10px 20px;
+    display: flex;
+    width: 400px;
+    align-items: center;
+  }

@@ -1,0 +1,33 @@
+/* TaskList.css */
+
+.allTodo {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .singleTodo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .todoText {
+    flex-grow: 1;
+    font-size: 18px;
+  }
+  
+  button {
+    padding: 10px;
+    border-radius: 25px;
+    color: white;
+    border: 1px solid white;
+    background-color: orangered;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  button:hover {
+    background-color: red;
+  }
+  
