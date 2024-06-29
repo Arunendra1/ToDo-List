@@ -1,4 +1,3 @@
-// Taskinput.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,14 +6,17 @@ import { AddTodoAction } from '../actions/TodoActions';
 
 function Taskinput() {
   const dispatch = useDispatch();
-  const [todo, setTodo] = useState('');
+  const [todo, setTodo] = useState('');// Local state to manage input value
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(AddTodoAction(todo));
-    setTodo('');
-  };
+    if (todo.trim()) {
+      const newTodo = { id: Date.now(), todo };// Create new todo object
+      dispatch(AddTodoAction(newTodo));// Dispatch add todo action
+      setTodo('');// Reset input field
+  }
+};
 
   const navigateToTaskList = () => {
     navigate('/tasklist');
@@ -27,7 +29,7 @@ function Taskinput() {
           type="text"
           placeholder="Add a todo"
           value={todo}
-          onChange={(e) => setTodo(e.target.value)}
+          onChange={(e) => setTodo(e.target.value)}// Update local state on input change
         />
         <button type="submit">GO</button>
       </form>
