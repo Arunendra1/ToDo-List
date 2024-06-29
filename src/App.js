@@ -14,7 +14,9 @@ function App() {
           <header className="App-header">
             <h2>Todo List App</h2>
             <Routes>
+               {/* Route for Taskinput component*/} 
               <Route path="/" element={<Taskinput />} exact />
+               {/* Route for TaskList component */}
               <Route path="/tasklist" element={<TaskList />} />
             </Routes>
           </header>
